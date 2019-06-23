@@ -1,0 +1,79 @@
+
+<h1>
+  Top autorów
+</h1>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <i class="icon-calendar"></i>
+          <h3 class="panel-title">Dodaj autora</h3>
+        </div>
+        
+        <div class="panel-body">
+          <div *ngIf="next == false">
+            <div class="row">
+              <div class="col-lg-6 col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon">Name</span>
+                  <input type="text" name="car" class="form-control" [(ngModel)]="car" placeholder="Imię" value="{{car}}">
+                </div>
+              </div>
+
+
+              <div class="col-lg-6 col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">Surname</span>
+                    <input type="text" name="model" class="form-control"  [(ngModel)]="model" placeholder="Nazwisko" value="{{model}}">
+                  </div>
+              </div>
+
+            </div>
+<!-- 
+            <div class="row">
+
+
+                <div class="col-lg-12 col-sm-12">
+                    <div class="input-group">
+                      <span class="input-group-addon">@</span>
+                      <input type="text" class="form-control" placeholder="email">
+                    </div>
+                </div>            
+
+            </div> -->
+            <div class="row">
+                <button (click)="adddPost()"  type="button" class="btn btn-dark">Dodaj</button>
+            </div>
+          </div>
+
+          <div *ngIf="next == true">
+              <h1>
+                  Możesz dodać więcej autorów
+                </h1>
+            <button (click)="nextpost()" type="button" class="btn btn-dark">Dodaj kolejny</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1>
+      Lista autorów
+  </h1>
+
+
+
+  <div *ngIf="data === null">Loading...</div>
+  <div *ngIf="data !== null">
+    <div infiniteScroll [infiniteScrollDistance]="0.5" (scrolled)="onScroll($event)">
+      <div class="row">
+        <div *ngFor="let box of boxes; index as i" class="animated slideInUp  topauth"> <div *ngIf="this.apiService.liczba > i">{{apiService.data[i].id}}: {{apiService.data[i].car}} {{apiService.data[i].model}} {{apiService.data[i].pkt}} </div>
+        <div class="point"><span class="glyphicon glyphicon-thumbs-up"  (click)="changePostt(apiService.data[i].id, apiService.data[i].pkt)" ></span></div>
+        
+        </div>
+
+
+        
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+<h1>
+    Najciekawsze artykuły
+</h1>
+<div class="container" infiniteScroll [infiniteScrollDistance]="0.5" (scrolled)="onScroll($event)">
+  <div class="row">
+    <div *ngFor="let box of boxes; index as i" class="animated bounceInRight  box"> <div *ngIf="this.apiarticlesService.liczba > i">
+      
+      <div class="panel panel-default">
+          
+          <div class="panel-heading">Tytuł: {{apiarticlesService.data[i].title}}</div>
+          <div class="panel-body">
+              <div><img src="https://picsum.photos/1200/{{300+2*i}}" class="img-responsive"></div>
+              <div class="text-article">{{apiarticlesService.data[i].articles}}</div>
+              
+          </div>
+          <div class="panel-footer">Autor: {{apiarticlesService.data[i].auth}}</div>
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

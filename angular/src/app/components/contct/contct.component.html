@@ -1,0 +1,42 @@
+<h1>Umów się na spotkanie w odnośnie publikacji</h1>
+<h3>Twojego artykułu</h3>
+<h3>Godziny spotkania 10.00 -12.00</h3>
+<img src="./../../../assets/man.jpg" class="img-responsive img-circle person">
+<div class="panel-body">
+        <div *ngIf="next == false">
+          <div class="row">
+            <div class="col-lg-4 col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Kto</span>
+                <input type="text" name="car" class="form-control" [(ngModel)]="name" placeholder="Imię i nazwisko" value="{{name}}">
+              </div>
+            </div>
+
+
+            <div class="col-lg-4 col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon">Twój email</span>
+                  <input type="text" name="email" class="form-control"  [(ngModel)]="email" placeholder="Email" value="{{email}}">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">Data</span>
+                      <input type="date" name="date" class="form-control"  [(ngModel)]="date">
+                    </div>
+                </div>
+          </div>
+
+          <div class="row">
+              <button (click)="adddCalendar()"  type="button" class="btn btn-dark">Dodaj</button>
+          </div>
+        </div>
+     
+        <div *ngIf="next == true">
+            <h1>
+                Możesz umówić się na kolejne spotkanie
+              </h1>
+          <button (click)="nextpost()" type="button" class="btn btn-dark">Dodaj kolejny</button>
+        </div>
+      </div>

@@ -1,0 +1,58 @@
+<!-- <a 
+  routerLink="/"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact: true}"
+  >Home</a>&nbsp;
+<a 
+  routerLink="/list" 
+  routerLinkActive="active">Lista</a>&nbsp;
+<a 
+  routerLink="/articles" 
+  routerLinkActive="active">Artykuły</a>&nbsp;
+<a 
+  routerLink="/contact" 
+  routerLinkActive="active">Kontakt</a> -->
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- <a href="#">Project name</a> -->
+        <a  class="navbar-brand"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            >Home</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+
+          <li><a 
+            routerLink="/list" 
+            routerLinkActive="active">Lista</a></li>
+          <li><a 
+            routerLink="/articles" 
+            routerLinkActive="active">Artykuły</a></li>
+            <li><a 
+                routerLink="/contact" 
+                routerLinkActive="active">Kontakt</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="starter-template">
+      <h1>{{ titleContent }}</h1>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+  
+<!-- <app-list></app-list> -->
